@@ -1,8 +1,8 @@
 package me.teddyyy.listener;
 
 import me.teddyyy.nms.ModifiedPathfinderGoalBowShoot;
-import me.teddyyy.nms.ModifiedPathfinderGoalSwell;
 import me.teddyyy.nms.PathfinderFindTarget;
+import me.teddyyy.nms.PathfinderGoalSwell;
 import me.teddyyy.nms.PathfinderMoveToPlayer;
 import me.teddyyy.utils.HadesUtils;
 import net.minecraft.server.v1_14_R1.EntityCreeper;
@@ -46,7 +46,7 @@ public class HadesListener implements Listener {
                     craftMonster.goalSelector.a(3, new ModifiedPathfinderGoalBowShoot(player, ((EntitySkeleton) craftMonster), 1.0D, 20, 15.0F));
                     break;
                 case CREEPER:
-                    craftMonster.goalSelector.a(3, new ModifiedPathfinderGoalSwell(((EntityCreeper) craftMonster)));
+                    craftMonster.goalSelector.a(3, new PathfinderGoalSwell(((EntityCreeper) craftMonster)));
                     break;
                 default:
                     break;
