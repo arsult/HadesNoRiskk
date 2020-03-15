@@ -36,13 +36,14 @@ public class PathfinderMoveToPlayer extends PathfinderGoal {
             return;
         }
 
-        if (monster.getBukkitEntity().getLocation().distance(player.getLocation()) >= 4.0) {
+        if (monster.getBukkitEntity().getLocation().distance(player.getLocation()) >= 50.0D) {
+            monster.getBukkitEntity().teleport(player.getLocation().add(0, 1, 0));
+            return;
+        }
 
+        if (monster.getBukkitEntity().getLocation().distance(player.getLocation()) >= 4.0) {
             monster.getNavigation().a(player.getLocation().getX(), player.getLocation().getY() + 1.0D, player.getLocation().getZ(), 1.5F);
             monster.getControllerLook().a(((CraftPlayer) player).getHandle(), 10.0F, 0.0F);
-
-        } else if (monster.getBukkitEntity().getLocation().distance(player.getLocation()) >= 50.0D) {
-            monster.getBukkitEntity().teleport(player.getLocation().add(0, 1, 0));
         }
     }
 
